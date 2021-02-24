@@ -54,10 +54,10 @@ class UsersController < ApplicationController
 
       return true if current_user.is_admin
 
-      render json:{}, status: 201 unless current_user?(@user)
+      render json:{}, status: 401 unless current_user?(@user)
     end
 
     def admin_user
-      render json:{}, status: 201 unless current_user.is_admin
+      render json:{}, status: 401 unless current_user.is_admin
     end
   end
